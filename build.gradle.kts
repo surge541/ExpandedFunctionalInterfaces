@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("maven-publish")
 }
 
 group = "me.surge"
@@ -11,4 +12,12 @@ repositories {
 
 dependencies {
 
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components.findByName("java"))
+        }
+    }
 }
